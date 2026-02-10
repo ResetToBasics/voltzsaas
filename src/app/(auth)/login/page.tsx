@@ -4,8 +4,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Envelope, Lock, GoogleLogo, GithubLogo, User } from '@phosphor-icons/react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    router.push('/dashboard');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -26,7 +39,7 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <div className="space-y-6">
+      <form className="space-y-6" onSubmit={onSubmit}>
         <div className="space-y-4">
           <div className="group relative">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-white/50 transition-colors">
@@ -35,6 +48,8 @@ export default function LoginPage() {
             <input
               type="email"
               placeholder="Email profissional"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-white/[0.03] border border-white/5 rounded-2xl py-4 pl-12 pr-6 text-white text-[15px] outline-none focus:border-white/10 focus:bg-white/[0.05] transition-all"
             />
           </div>
@@ -46,6 +61,8 @@ export default function LoginPage() {
             <input
               type="password"
               placeholder="Sua senha secreta"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-white/[0.03] border border-white/5 rounded-2xl py-4 pl-12 pr-6 text-white text-[15px] outline-none focus:border-white/10 focus:bg-white/[0.05] transition-all"
             />
             <Link
@@ -57,8 +74,12 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <button className="w-full bg-white text-black py-4 rounded-2xl font-black text-[15px] flex items-center justify-center gap-2 hover:bg-white/90 shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all">
-          Entrar na Plataforma
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-white text-black py-4 rounded-2xl font-black text-[15px] flex items-center justify-center gap-2 hover:bg-white/90 shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all disabled:opacity-80 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? 'Entrando...' : 'Entrar na Plataforma'}
           <ArrowRight size={18} weight="bold" />
         </button>
 
@@ -81,7 +102,7 @@ export default function LoginPage() {
             <span className="text-[13px] font-bold">Github</span>
           </button>
         </div>
-      </div>
+      </form>
     </motion.div>
   );
 }
