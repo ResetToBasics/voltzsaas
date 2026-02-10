@@ -56,6 +56,7 @@ export function LandingHero() {
           <svg
             className="absolute inset-0 w-full h-full overflow-visible"
             preserveAspectRatio="none"
+            viewBox="0 0 1200 1200"
           >
             <defs>
               <filter id="line-glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -95,7 +96,7 @@ export function LandingHero() {
             initial={{ y: -600, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: 'spring', damping: 18, stiffness: 45, delay: 0.2 }}
-            className="absolute left-[128px] top-[320px] -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.3)] z-20"
+            className="absolute left-[10.7%] top-[26.7%] -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.3)] z-20"
           >
             <svg viewBox="0 0 256 417" className="w-4 h-4 text-black">
               <path
@@ -130,7 +131,7 @@ export function LandingHero() {
             initial={{ y: -600, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: 'spring', damping: 18, stiffness: 45, delay: 0.5 }}
-            className="absolute left-[1072px] top-[400px] -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.3)] z-20"
+            className="absolute left-[89.3%] top-[33.3%] -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.3)] z-20"
           >
             <svg viewBox="0 0 256 417" className="w-4 h-4 text-black">
               <path
