@@ -20,12 +20,14 @@ export function HeroPreviewFrame({
     lg: number;
   };
 }) {
-  const scales = customScales || { mobile: 0.72, sm: 0.78, lg: 0.84 };
+  // The embedded dashboard is dense; on mobile we scale down more and use a taller aspect
+  // ratio so the preview doesn't feel "zoomed in".
+  const scales = customScales || { mobile: 0.54, sm: 0.7, lg: 0.84 };
   return (
     <div className="relative w-full max-w-[1100px] mx-auto">
       <div className="rounded-[32px] border border-white/10 bg-black/20 backdrop-blur-2xl shadow-[0_30px_80px_rgba(0,0,0,0.8),0_0_120px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] p-3">
         <div className="rounded-[28px] border border-white/20 bg-black/40 overflow-hidden">
-          <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
+          <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 bg-white/5 border-b border-white/10">
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
@@ -46,7 +48,7 @@ export function HeroPreviewFrame({
             </Link>
           </div>
 
-          <div className="relative aspect-[16/9] bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.03)_0%,transparent_55%)]">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.03)_0%,transparent_55%)]">
             {/* Inner frost contour */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.4),rgba(0,0,0,0.1))] opacity-50" />
